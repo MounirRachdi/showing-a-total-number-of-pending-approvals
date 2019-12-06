@@ -1,4 +1,4 @@
-import { LightningElement, wire, api } from 'lwc';
+import { LightningElement, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 import getPendingList from '@salesforce/apex/GetPendingApproval.getPendingList'; 
 import getName from '@salesforce/apex/GetPendingApproval.getName';
