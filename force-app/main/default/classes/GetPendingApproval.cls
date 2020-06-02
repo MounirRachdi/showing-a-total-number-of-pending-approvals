@@ -7,16 +7,16 @@ public with sharing class GetPendingApproval {
     }
     @AuraEnabled(cacheable=true) 
     public static String getPendingList() {
-     Integer num=0;
+     Integer number=0;
         for (ProcessInstance pi: [SELECT Id, Status,
                 (SELECT Id, ActorId, OriginalActorId, StepStatus FROM StepsAndWorkitems WHERE ActorId=:UserInfo.getUserId() AND StepStatus =: 'Pending') 
                 FROM ProcessInstance WHERE Status =: 'Pending']) {
 
                    for (ProcessInstanceHistory pih : pi.StepsAndWorkItems) {
-                       num++;
+                       number++;
                        }          
                    }
  
-                   return String.valueOf(num);
+                   return String.valueOf(number);
     }
 }
